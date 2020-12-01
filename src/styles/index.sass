@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet')
+html
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+  body
+    margin: 0px
+    padding: 0px
+    @for $i from 1 through 10
+      .Row-#{$i}
+        display: grid
+        grid-template-columns: repeat(#{$i}, 1fr)
+  // colors:
+  $base-color-dark: #eaeaea40
+  $base-color: #eaeaea
+  $base-color-light: rgba($base-color, 0.60)
+  $item-color: #005e8620
+  $item-color-dark: #005e8650
+  $button-color-hover: #222222
+  $s000: #E8EAF6//black
+  $light: #498bb6
+  $primary: #005e86
+  $dark: #003559
+  a
+    text-decoration: none
+    color: #222222
+    &:hover
+      color: $dark
+    &:active
+      color: red
+  button
+    background-color: $primary
+    border-radius: 16px
+    border: 1px solid $primary
+    display: inline-block
+    cursor: pointer
+    color: #ffffff
+    font-family: Verdana
+    font-size: 1.2em
+    padding: 6px 20px
+    text-decoration: none
+    text-shadow: 0px 1px 0px $primary
+    margin: 1em
+    &:hover
+      background-color: $button-color-hover
+    &:active
+      position: relative
+      top: 1px
+    a
+      color: #ffffff
+
+  body
+    margin: 0
+    padding: 0
+    display: grid
+    height: 100vh
+    grid-template-columns: auto 1fr
+    .Column
+      display: flex
+      flex-flow: column
+    header
+      background-color: $primary
+      padding: 2em 0.5em
+      color: #ffffff
+      border-right: 2px solid $dark
+      ul
+        padding: 1em 0.5em 1em 1em
+        font-size: 2em
+        text-transform: uppercase
+        list-style-type: none
+        color: #ffffff
+        li a
+          color: #ffffff
+          padding: 0.1em 1em
+          margin: 0
+          &:hover
+            color: $dark
+    main
+      background-color: $s000
+      padding: 0.2em 1em
+      font-size: 1.3em
+      .Wrapper
+        padding: 0.4em 1em
+        border-radius: 0.6em
+        margin: 0em
+        // Table row item
+        .Item
+          border-radius: 0.4em
+          background-color: $item-color
+          margin: 2px
+          padding: 5px 10px
+          text-align: center
+          div
+            text-align: center
+        & .Hover
+          &:hover
+            background-color: $item-color-dark
+        .Head
+          background-color: $item-color-dark
+        .Flex
+          display: flex
+          flex-direction: row
+          .Item
+            display: flex
+            flex-direction: column
+        form
+          margin: 1em
+          input, select
+            font-size: 1em
+            padding: 0.1em 0.2em
+            margin: 0.5em
+      // Custom setting for components
+      .OrdersList-Item
+        grid-template-columns: 30px 1fr 1fr
