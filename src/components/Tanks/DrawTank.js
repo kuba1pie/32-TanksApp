@@ -1,26 +1,31 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import Svg, { Rect, Circle, Text } from 'react-native-svg'
-import { SVG } from '@svgdotjs/svg.js'
 
 class DrawTank extends Component {
   state = {
-    capacity: '',
-    height: '',
-    diameter: '',
-    type: '',
-    OrderID: '',
+    height: 21,
+    diameter: this.props.tank,
+    tanks: 0,
   }
-  state = {
-    datas: [],
-  }
+
   render() {
-    var draw = SVG().addTo('svg').size(300, 300)
-    var rect = draw.rect(100, 100).attr({ fill: '#f06' })
+    let { tanks } = this.state
     return (
       <div id="DrawTank" className="Wrapper">
         <h2>DrawTank: </h2>
-        <div id="svg"></div>
+        <div id="svg">
+          <input
+            type="text"
+            value={this.state.diameter}
+            onChange={(e) => this.setState({ diameter: e.target.value })}
+          />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+            <g fill="#888">
+              <circle cx="100" cy="100" r={this.state.diameter} />
+              <rect x="50" y="100" width={this.state.diameter} height={this.state.height} />
+              <path d="M520.5 78.1z" />
+            </g>
+          </svg>
+        </div>
       </div>
     )
   }

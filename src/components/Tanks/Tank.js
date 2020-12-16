@@ -37,6 +37,7 @@ class Tank extends Component {
               <div>{item.capacity} m3</div>
               <div>{item.height}m</div>
               <div>{item.TankID}</div>
+              <DrawTank tank={item.height} />
               <Link
                 to={{
                   pathname: '/tankedit',
@@ -53,7 +54,7 @@ class Tank extends Component {
         <h2>Materials:</h2>
         <TankMaterials tank={this.props.match.params.id} />
         <CreateMaterial tank={this.props.match.params.id} />
-        <DrawTank tank={this.props.match.params.id} />
+        
       </div>
     )
   }
