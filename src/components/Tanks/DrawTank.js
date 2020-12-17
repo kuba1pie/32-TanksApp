@@ -21,7 +21,8 @@ class DrawTank extends Component {
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
             <g fill="#888">
               <circle cx="100" cy="100" r={this.state.diameter} />
-              <rect x="50" y="100" width={this.state.diameter} height={this.state.height} />
+              <rect x="50" y="100" width={this.state.diameter*10} height={this.state.height} />
+              <polygon points="50,80 100,100 50,100" />
               <path d="M520.5 78.1z" />
             </g>
           </svg>
