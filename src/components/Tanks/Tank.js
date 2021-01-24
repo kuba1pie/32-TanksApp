@@ -28,14 +28,16 @@ class Tank extends Component {
         <h2>Tank</h2>
         <div className="TanksList-Item Item Row-2" key="header">
           <div className="Head Item">
-            <div className="Name">Capacity</div>
-            <div className="City">Order</div>
-            <div className="Client">ID</div>
+            <div className="Capacity">Capacity</div>
+            <div className="Height">Height</div>
+            <div className="Diameter">Diameter</div>
+            <div className="ID">ID</div>
           </div>
           {tanks.map((item) => (
             <div className="Item" key={item.TankID}>
               <div>{item.capacity} m3</div>
-              <div>{item.height}m</div>
+              <div>{item.height} m</div>
+              <div>{item.diameter} m</div>
               <div>{item.TankID}</div>
               <DrawTank tank={item.height} />
               <Link

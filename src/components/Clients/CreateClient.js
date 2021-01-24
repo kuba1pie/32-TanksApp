@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class CreateClient extends Component {
   state = {
@@ -7,7 +8,7 @@ class CreateClient extends Component {
     city: '',
     adress: '',
     person: '',
-    number: null,
+    number: '',
     email: '',
   }
   submit() {
@@ -19,6 +20,7 @@ class CreateClient extends Component {
       .catch(function (error) {
         console.log(error)
       })
+    return <Redirect to="/clients/" />
   }
   render() {
     return (
