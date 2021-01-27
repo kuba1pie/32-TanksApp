@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from './Home'
 import Header from './Header'
@@ -29,6 +29,7 @@ class App extends Component {
       <BrowserRouter>
         <Header />
         <main>
+        <Redirect from='/client/:id' to='/clients'/>
           <Route exact path="/clients" component={Clients} />
           <Route exact path="/clients/create" component={CreateClient} />
           <Route exact path="/client/:id" component={Client} />
