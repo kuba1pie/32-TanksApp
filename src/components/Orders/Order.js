@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import OrderTanks from './OrderTanks'
+import Delete from '../Delete'
 import { Link } from 'react-router-dom'
 import EditOrder from './EditOrder'
 import { Redirect } from 'react-router-dom'
@@ -18,12 +19,6 @@ class Order extends Component {
         const datas = res.data
         this.setState({ datas })
       })
-  }
-  deleteOrder = () => {
-    axios.delete(host + this.props.match.params.id).then((res) => {
-      console.log('Client deleted')
-    })
-    return <Redirect to="/clients" />
   }
   render() {
     let { datas } = this.state
@@ -47,10 +42,7 @@ class Order extends Component {
               <OrderTanks order={this.props.match.params.id} />
 
               <div className="Row Item">
-                <button className="Red" onClick={this.deleteOrder}>
-                  Delete Order
-                </button>
-
+                <Delete type="Order" url={host + this.props.match.params.id} />
                 <Link
                   to={{
                     pathname: '/orderedit',

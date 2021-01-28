@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ClientOrders from './ClientOrders'
-import { Redirect } from "react-router-dom";
-
+import { Redirect } from 'react-router-dom'
+import Delete from '../Delete'
 let host = 'http://localhost:4000/client/'
 
 class Client extends Component {
@@ -14,12 +14,6 @@ class Client extends Component {
       const datas = res.data
       this.setState({ datas })
     })
-  }
-  deleteClient = () => {
-    axios.delete(host + this.props.match.params.id).then((res) => {
-      console.log('Client deleted')
-    })
-    return <Redirect to="/clients" />
   }
   render() {
     let { datas } = this.state
@@ -50,9 +44,7 @@ class Client extends Component {
                 <ClientOrders client={this.props.match.params.id} />
               </div>
               <div className="Item">
-                <div className="It">
-                  <button className="Red" onClick={this.deleteClient}>Delete Client</button>
-                </div>
+                <Delete type="Client" url={host + this.props.match.params.id} />
               </div>
             </div>
           )

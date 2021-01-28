@@ -5,6 +5,7 @@ import _ from 'lodash'
 import CreateMaterial from '../Materials/CreateMaterial'
 import TankMaterials from './TankMaterials'
 import DrawTank from './DrawTank'
+import Delete from '../Delete'
 
 let host = 'http://localhost:4000/tanks/'
 
@@ -56,7 +57,7 @@ class Tank extends Component {
         <h2>Materials:</h2>
         <TankMaterials tank={this.props.match.params.id} />
         <CreateMaterial tank={this.props.match.params.id} />
-        
+        <Delete type="Tank" url={host + this.props.match.params.id} />
       </div>
     )
   }
