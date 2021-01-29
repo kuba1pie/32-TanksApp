@@ -7,10 +7,8 @@ class Clients extends Component {
   state = {
     datas: [],
   }
-  getData = (array) => {
-    this.setState(() => {
-      return { datas: array }
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   render() {
     return (
@@ -18,12 +16,12 @@ class Clients extends Component {
         <h2>Clients List: </h2>
         <div id="ClientsList">
           <div id="ClientsHeader" className="Item Head Row-4">
-            <div >Client Name</div>
-            <div >Client City</div>
+            <div>Client Name</div>
+            <div>Client City</div>
             <div>Order Name</div>
             <div>Order City</div>
           </div>
-          <Get path="clients" sendData={this.getData} />
+          <Get path="clients" handleData={this.handleDatas} />
           {this.state.datas.map((client) => (
             <ClientListItem client={client} key={client.ClientID} />
           ))}

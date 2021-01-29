@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import EditSupply from './EditSupply'
-
 
 class Order extends Component {
   state = {

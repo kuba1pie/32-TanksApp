@@ -21,7 +21,7 @@ class ClientOrders extends Component {
 
   render() {
     let { orders } = this.state
-    if ((Object.keys(orders).length != 0)) {
+    if ((Object.keys(orders).length !== 0)) {
       return (
         <div id="ClientOrders ">
           {orders.map((order) => (

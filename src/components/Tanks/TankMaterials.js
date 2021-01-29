@@ -21,7 +21,7 @@ class TankMaterials extends Component {
 
   render() {
     let { materials } = this.state
-    if (Object.keys(materials).length != 0) {
+    if (Object.keys(materials).length !== 0) {
       return (
         <div className="TankMaterials Wrapper Item">
           <h3>Tank Materials:</h3>

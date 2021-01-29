@@ -3,8 +3,6 @@ import axios from 'axios'
 import OrderTanks from './OrderTanks'
 import Delete from '../Delete'
 import { Link } from 'react-router-dom'
-import EditOrder from './EditOrder'
-import { Redirect } from 'react-router-dom'
 
 let host = 'http://localhost:4000/orders/'
 

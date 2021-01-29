@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import Order from './OrderListItem'
 import { Link } from 'react-router-dom'
+import Get from '../Functional/Get'
 
 class Orders extends Component {
   state = {
-    orders: [],
+    datas: [],
   }
-  componentDidMount() {
-    axios.get(`http://localhost:4000/orders`).then((res) => {
-      const orders = res.data
-      this.setState({ orders })
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   render() {
     let { orders } = this.state
@@ -34,8 +31,8 @@ class Orders extends Component {
               <div>Diameter</div>
             </div>
           </div>
-
-          {orders.map((order) => {
+          <Get path="orders" handleData={this.handleDatas} />
+          {this.state.datas.map((order) => {
             return <Order key={order.OrderID} order={order} />
           })}
         </div>

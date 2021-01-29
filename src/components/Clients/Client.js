@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ClientOrders from './ClientOrders'
-import { Redirect } from 'react-router-dom'
 import Delete from '../Delete'
+import Get from '../Get'
 let host = 'http://localhost:4000/client/'
 
 class Client extends Component {
@@ -45,6 +45,11 @@ class Client extends Component {
               </div>
               <div className="Item">
                 <Delete type="Client" url={host + this.props.match.params.id} />
+                <Get
+                  type="Client"
+                  data={""}
+                  url={host + this.props.match.params.id}
+                />
               </div>
             </div>
           )
