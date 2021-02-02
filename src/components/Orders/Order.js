@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import OrderTanks from './OrderTanks'
-import Delete from '../Delete'
+import Delete from '../Functional/Delete'
 import { Link } from 'react-router-dom'
 
 let host = 'http://localhost:4000/orders/'

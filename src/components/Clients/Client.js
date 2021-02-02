@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ClientOrders from './ClientOrders'
-import Delete from '../Delete'
-import Get from '../Get'
+import Delete from '../Functional/Delete'
+import Get from '../Functional/Get'
 let host = 'http://localhost:4000/client/'
 
 class Client extends Component {
   state = {
     datas: [],
   }
-  componentDidMount() {
-    axios.get(host + this.props.match.params.id).then((res) => {
-      const datas = res.data
-      this.setState({ datas })
-    })
-  }
+
   render() {
     let { datas } = this.state
     return (
@@ -45,11 +40,6 @@ class Client extends Component {
               </div>
               <div className="Item">
                 <Delete type="Client" url={host + this.props.match.params.id} />
-                <Get
-                  type="Client"
-                  data={""}
-                  url={host + this.props.match.params.id}
-                />
               </div>
             </div>
           )

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Order from './OrderListItem'
 import { Link } from 'react-router-dom'
 import Get from '../Functional/Get'
+import getFunction from '../Functional/getFunction'
 
 class Orders extends Component {
   state = {
@@ -11,7 +12,6 @@ class Orders extends Component {
     this.setState({ datas: datasArray })
   }
   render() {
-    let { orders } = this.state
     return (
       <div id="Orders" className="Wrapper">
         <h2>Orders:</h2>

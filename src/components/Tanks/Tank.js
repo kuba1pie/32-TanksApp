@@ -5,7 +5,7 @@ import _ from 'lodash'
 import CreateMaterial from '../Materials/CreateMaterial'
 import TankMaterials from './TankMaterials'
 import DrawTank from './DrawTank'
-import Delete from '../Delete'
+import Delete from '../Functional/Delete'
 
 let host = 'http://localhost:4000/tanks/'
 

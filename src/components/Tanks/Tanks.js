@@ -1,24 +1,16 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CreateTank from './CreateTank'
 import _ from 'lodash'
-
+import Get from '../Functional/Get'
 class Tanks extends Component {
   state = {
-    tanks: [],
+    datas: [],
   }
-
-  componentDidMount() {
-    axios.get(`http://localhost:4000/tanks`).then((res) => {
-      const tanks = res.data
-      this.setState({ tanks })
-      return res.data
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   render() {
-    let { tanks } = this.state
-
     return (
       <div id="Tanks" className="Wrapper">
         <h2>Tanks:</h2>
@@ -30,7 +22,8 @@ class Tanks extends Component {
               <div>ID</div>
             </div>
           </div>
-          {tanks.map((tank) => (
+          <Get path="tanks" handleData={this.handleDatas} />
+          {this.state.datas.map((tank) => (
             <Link
               to={'/tank/' + tank.TankID}
               key={tank.OrderName + '_' + tank.TankID}
