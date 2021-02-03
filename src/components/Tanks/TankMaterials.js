@@ -1,36 +1,29 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import Get from '../Functional/Get'
 class TankMaterials extends Component {
   state = {
-    materials: [],
+    datas: [],
   }
-
-  componentDidMount() {
-    axios
-      .get(`http://localhost:4000/tanks/materials/` + this.props.tank)
-      .then((res) => {
-        const materials = res.data
-        this.setState({ materials })
-      })
-      .catch(function (error) {
-        return null
-      })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
 
   render() {
-    let { materials } = this.state
-    if (Object.keys(materials).length !== 0) {
       return (
         <div className="TankMaterials Wrapper Item">
+                  <Get
+          path={'orders/' + this.props.TankId}
+          handleData={this.handleDatas}
+        />
           <h3>Tank Materials:</h3>
           <div className="Row-3 Item Head">
             <div>MaterialID</div>
             <div>Name</div>
             <div>Quantity</div>
           </div>
-          {materials.map((item) => (
+          {this.state.datas.map((item) => (
             <Link to={'/materials/' + item.MaterialID} key={item.MaterialID}>
               <div className="Row-3 Item Hover">
                 <div>{item.MaterialID}</div>
@@ -41,9 +34,6 @@ class TankMaterials extends Component {
           ))}
         </div>
       )
-    } else {
-      return <div className="TanksList-content">No Orders</div>
-    }
   }
 }
 

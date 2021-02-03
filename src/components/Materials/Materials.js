@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-
+import Get from '../Functional/Get'
 class Materials extends Component {
   state = {
-    materials: [],
+    datas: [],
+  }
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:4000/materials`).then((res) => {
-      const materials = res.data
-      this.setState({ materials })
-      return res.data
-    })
-  }
   render() {
-    let { materials } = this.state
     return (
       <div className="MaterialsList-content Wrapper ">
         <h2>Materials:</h2>
@@ -25,7 +19,8 @@ class Materials extends Component {
             <div className="Client">ID</div>
           </div>
         </div>
-        {materials.map((material) => (
+        <Get path="materials" handleData={this.handleDatas} />
+        {this.state.datas.map((material) => (
           <div className="Row-3 Item Hover" key={material.MaterialID}>
             <div>{material.name}</div>
             <div>{material.TankID}</div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import ClientOrders from './ClientOrders'
 import Delete from '../Functional/Delete'
 import Get from '../Functional/Get'

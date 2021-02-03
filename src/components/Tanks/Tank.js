@@ -6,26 +6,23 @@ import CreateMaterial from '../Materials/CreateMaterial'
 import TankMaterials from './TankMaterials'
 import DrawTank from './DrawTank'
 import Delete from '../Functional/Delete'
-
+import Get from '../Functional/Get'
 let host = 'http://localhost:4000/tanks/'
 
 class Tank extends Component {
   state = {
-    tanks: [],
+    datas: [],
   }
-
-  componentDidMount() {
-    axios.get(host + this.props.match.params.id).then((res) => {
-      const tanks = res.data
-      this.setState({ tanks })
-      return res.data
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   render() {
-    let { tanks } = this.state
-
     return (
       <div id="Tank" className="Wrapper">
+        <Get
+          path={'tanks/' + this.props.match.params.id}
+          handleData={this.handleDatas}
+        />
         <h2>Tank</h2>
         <div className="TanksList-Item Item Row-2" key="header">
           <div className="Head Item">
@@ -34,7 +31,7 @@ class Tank extends Component {
             <div className="Diameter">Diameter</div>
             <div className="ID">ID</div>
           </div>
-          {tanks.map((item) => (
+          {this.state.datas.map((item) => (
             <div className="Item" key={item.TankID}>
               <div>{item.capacity} m3</div>
               <div>{item.height} m</div>
@@ -45,7 +42,7 @@ class Tank extends Component {
                 to={{
                   pathname: '/tankedit',
                   state: {
-                    tank: tanks[0],
+                    tank: this.state.datas[0],
                   },
                 }}
               >
@@ -55,7 +52,7 @@ class Tank extends Component {
           ))}
         </div>
         <h2>Materials:</h2>
-        <TankMaterials tank={this.props.match.params.id} />
+        <TankMaterials TankId={this.props.match.params.id} />
         <CreateMaterial tank={this.props.match.params.id} />
         <Delete type="Tank" url={host + this.props.match.params.id} />
       </div>

@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import OrderTanks from './OrderTanks'
 import Delete from '../Functional/Delete'
 import { Link } from 'react-router-dom'
-
+import Get from '../Functional/Get'
 let host = 'http://localhost:4000/orders/'
 
 class Order extends Component {
   state = {
     datas: [],
   }
-  componentDidMount() {
-    axios
-      .get('http://localhost:4000/orders/' + this.props.match.params.id)
-      .then((res) => {
-        const datas = res.data
-        this.setState({ datas })
-      })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   render() {
     let { datas } = this.state
     return (
       <div id="Order">
-        {datas.map((item) => {
+        <Get
+          path={'orders/' + this.props.match.params.id}
+          handleData={this.handleDatas}
+        />
+        {this.state.datas.map((item) => {
           return (
             <div className="Wrapper">
               <div className="Item">

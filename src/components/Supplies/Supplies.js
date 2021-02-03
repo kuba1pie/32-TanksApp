@@ -1,25 +1,19 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
-
+import Get from '../Functional/Get'
 class Supplies extends Component {
   state = {
-    supplies: [],
+    datas: [],
   }
-
-  componentDidMount() {
-    axios.get(`http://localhost:4000/supplies`).then((res) => {
-      const supplies = res.data
-      this.setState({ supplies })
-      return res.data
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   render() {
-    let { supplies } = this.state
 
     return (
       <div className="Supplies Wrapper">
+        <Get path={'supplies'} handleData={this.handleDatas} />
         <h2>Supplies:</h2>
         <div className="Column" key="header">
           <div className="Row-3 Head Item">
@@ -28,12 +22,12 @@ class Supplies extends Component {
             <div className="Client">Materials</div>
           </div>
         </div>
-        {supplies.map((supply) => (
+        {this.state.datas.map((supply) => (
           <Link to={'/supply/' + supply.SupplyID} key={supply.SupplyID}>
-            <div className="Row-3 Item Hover" >
-              <div >{supply.created}</div>
-              <div >{supply.SupplyID}</div>
-              <div >{supply.SupplyID}</div>
+            <div className="Row-3 Item Hover">
+              <div>{supply.created}</div>
+              <div>{supply.SupplyID}</div>
+              <div>{supply.SupplyID}</div>
             </div>
           </Link>
         ))}
