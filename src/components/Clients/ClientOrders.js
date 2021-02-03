@@ -1,30 +1,20 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import Get from '../Functional/Get'
 class ClientOrders extends Component {
   state = {
-    orders: [],
+    datas: [],
   }
-
-  componentDidMount() {
-    axios
-      .get(`http://localhost:4000/client/orders/` + this.props.client)
-      .then((res) => {
-        const orders = res.data
-        this.setState({ orders })
-      })
-      .catch(function (error) {
-        return null
-      })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
 
   render() {
-    let { orders } = this.state
-    if ((Object.keys(orders).length !== 0)) {
       return (
         <div id="ClientOrders ">
-          {orders.map((order) => (
+           <Get path={"client/orders/" + this.props.ClientID} handleData={this.handleDatas} />
+          {this.state.datas.map((order) => (
             <Link to={'/order/' + order.OrderID} key={order.OrderID}>
               <div className="Row-2 Item Hover">
                 <div>{order.name}</div>
@@ -34,13 +24,6 @@ class ClientOrders extends Component {
           ))}
         </div>
       )
-    } else {
-      return (
-        <div className="ClientOrders">
-          No orders
-        </div>
-      )
-    }
   }
 }
 

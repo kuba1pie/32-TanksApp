@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Order from './OrderListItem'
 import { Link } from 'react-router-dom'
 import Get from '../Functional/Get'
-import getFunction from '../Functional/getFunction'
+import CreateOrder from './CreateOrder'
 
 class Orders extends Component {
   state = {
@@ -37,9 +37,7 @@ class Orders extends Component {
           })}
         </div>
 
-        <button id="Btn-AddOrder">
-          <Link to="/orders/create">Add Order</Link>
-        </button>
+        <CreateOrder />
       </div>
     )
   }

@@ -7,17 +7,13 @@ class CreateOrder extends Component {
     city: '',
     adress: '',
     person: '',
-    ClientID: '',
+    ClientID: this.props.ClientID,
     number: null,
     email: '',
-  }
-  state = {
     datas: [],
   }
-  getData = (array) => {
-    this.setState((datas) => {
-      return { datas: array }
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   submit() {
     axios
@@ -33,6 +29,7 @@ class CreateOrder extends Component {
     return (
       <div id="CreateOrder" className="Wrapper">
         <h2>Create Order: </h2>
+        <Get path="clients" handleData={this.handleDatas} />
         <form className="Item Column">
           <select
             name="Client"
@@ -58,8 +55,6 @@ class CreateOrder extends Component {
             type="text"
             placeholder="City"
           />
-          <Get path="clients" sendData={this.getData} />
-
           <input
             value={this.state.adress}
             onChange={(e) => this.setState({ adress: e.target.value })}

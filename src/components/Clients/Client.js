@@ -3,17 +3,20 @@ import axios from 'axios'
 import ClientOrders from './ClientOrders'
 import Delete from '../Functional/Delete'
 import Get from '../Functional/Get'
-let host = 'http://localhost:4000/client/'
-
+import CreateOrder from '../Orders/CreateOrder'
 class Client extends Component {
   state = {
     datas: [],
+  }
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
 
   render() {
     let { datas } = this.state
     return (
       <div className="Client">
+        <Get path={"client/"+ this.props.match.params.id} handleData={this.handleDatas} />
         {datas.map((item) => {
           return (
             <div className="Wrapper Column">
@@ -36,10 +39,12 @@ class Client extends Component {
                   <div>Name</div>
                   <div>City</div>
                 </div>
-                <ClientOrders client={this.props.match.params.id} />
+                
+                <ClientOrders ClientID={this.props.match.params.id} />
+                <CreateOrder ClientID={this.props.match.params.id}/>
               </div>
               <div className="Item">
-                <Delete type="Client" url={host + this.props.match.params.id} />
+                <Delete type="Client" path={"client/"+ this.props.match.params.id} />
               </div>
             </div>
           )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import CreateTank from './CreateTank'
-import _ from 'lodash'
 import Get from '../Functional/Get'
+import _ from 'lodash'
 class Tanks extends Component {
   state = {
     datas: [],
@@ -36,7 +36,6 @@ class Tanks extends Component {
             </Link>
           ))}
         </div>
-
         <CreateTank />
       </div>
     )

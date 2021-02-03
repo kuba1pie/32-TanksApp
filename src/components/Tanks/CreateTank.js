@@ -8,14 +8,10 @@ class CreateTank extends Component {
     diameter: '',
     type: '',
     OrderID: '',
-  }
-  state = {
     datas: [],
   }
-  getData = (array) => {
-    this.setState((datas) => {
-      return { datas: array }
-    })
+  handleDatas = (datasArray) => {
+    this.setState({ datas: datasArray })
   }
   submit() {
     axios
@@ -33,7 +29,7 @@ class CreateTank extends Component {
       <div id="CreateOrder" className="Wrapper">
         <h2>Create Tank: </h2>
         <form className="flex flex-column Item">
-          <Get path="orders" sendData={this.getData} />
+        <Get path="orders" handleData={this.handleDatas} />
           <select
             name="Order"
             value={this.state.OrderID}
