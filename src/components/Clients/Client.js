@@ -39,7 +39,7 @@ class Client extends Component {
                   <div>City</div>
                 </div>
                 
-                <ClientOrders ClientID={this.props.match.params.id} />
+              {/*   <ClientOrders ClientID={this.props.match.params.id} /> */}
                 <CreateOrder ClientID={this.props.match.params.id}/>
               </div>
               <div className="Item">

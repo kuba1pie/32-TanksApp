@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Get from '../Functional/Get'
+import Delete from '../Functional/Delete'
+
 class Order extends Component {
   state = {
     datas: [],
@@ -21,9 +22,9 @@ class Order extends Component {
           return (
             <div className="Wrapper">
               <div className="Item">
-                <h2 className="Head Item">Order name: {item.name}</h2>
+                <h2 className="Head Item">Supply name: {item.name}</h2>
                 <p>SupplID: {item.SupplyID}</p>
-                <p>Order city: {item.MaterialID}</p>
+                <p>Material: {item.MaterialID}</p>
               </div>
 
               <p>Tanks: </p>
@@ -41,6 +42,9 @@ class Order extends Component {
                 }}
               >
                 <button> Edit supply</button>
+                <div className="Item">
+                <Delete path={"supplies/"+ this.props.match.params.id} />
+              </div>
               </Link>
             </div>
           )

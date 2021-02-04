@@ -14,7 +14,7 @@ class ClientListItem extends Component {
           </div>
         </Link>
 
-        <ClientOrders key={client.ClientID} ClientID={client.ClientID} />
+        {/* <ClientOrders key={client.ClientID} ClientID={client.ClientID} /> */}
       </div>
     )
   }

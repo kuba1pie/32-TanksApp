@@ -18,7 +18,7 @@ class OrderListItem extends Component {
           </div>
         </Link>
         <div className="OrdersList-Item-Tanks Column">
-          <OrderTanks key={order.OrderID} order={order.OrderID} />
+        {/*   <OrderTanks key={order.OrderID} order={order.OrderID} /> */}
         </div>
       </div>
     )

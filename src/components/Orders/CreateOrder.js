@@ -8,7 +8,7 @@ class CreateOrder extends Component {
     adress: '',
     person: '',
     ClientID: this.props.ClientID,
-    number: null,
+    number: '',
     email: '',
     datas: [],
   }

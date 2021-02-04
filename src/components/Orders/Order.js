@@ -35,10 +35,10 @@ class Order extends Component {
                 <div>city</div>
                 <div>city</div>
               </div>
-              <OrderTanks order={this.props.match.params.id} />
+              {/* <OrderTanks order={this.props.match.params.id} /> */}
 
               <div className="Row Item">
-                <Delete type="Order" url={host + this.props.match.params.id} />
+                <Delete type="Order" path={"orders/" + this.props.match.params.id} />
                 <Link
                   to={{
                     pathname: '/orderedit',

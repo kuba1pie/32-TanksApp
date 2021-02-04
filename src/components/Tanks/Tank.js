@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
 import CreateMaterial from '../Materials/CreateMaterial'
@@ -31,30 +30,36 @@ class Tank extends Component {
             <div className="Diameter">Diameter</div>
             <div className="ID">ID</div>
           </div>
-          {this.state.datas.map((item) => (
-            <div className="Item" key={item.TankID}>
-              <div>{item.capacity} m3</div>
-              <div>{item.height} m</div>
-              <div>{item.diameter} m</div>
-              <div>{item.TankID}</div>
-              <DrawTank tank={item.height} />
-              <Link
-                to={{
-                  pathname: '/tankedit',
-                  state: {
-                    tank: this.state.datas[0],
-                  },
-                }}
-              >
-                <button> Edit tank</button>
-              </Link>
-            </div>
-          ))}
+          {this.state.datas.map((item) => {
+            if (item.lenght > 0) {
+              return (
+                <div className="Item" key={item.TankID}>
+                  <div>{item.capacity} m3</div>
+                  <div>{item.height} m</div>
+                  <div>{item.diameter} m</div>
+                  <div>{item.TankID}</div>
+                  <DrawTank tank={item.height} />
+                  <Link
+                    to={{
+                      pathname: '/tankedit',
+                      state: {
+                        tank: this.state.datas[0],
+                      },
+                    }}
+                  >
+                    <button> Edit tank</button>
+                  </Link>
+                </div>
+              )
+            } else {
+              return <div className="null">null</div>
+            }
+          })}
         </div>
         <h2>Materials:</h2>
-        <TankMaterials TankId={this.props.match.params.id} />
-        <CreateMaterial tank={this.props.match.params.id} />
-        <Delete type="Tank" url={host + this.props.match.params.id} />
+{/*         <TankMaterials TankId={this.props.match.params.id} />
+ */}        <CreateMaterial tank={this.props.match.params.id} />
+        <Delete path={"tanks/" + this.props.match.params.id} />
       </div>
     )
   }

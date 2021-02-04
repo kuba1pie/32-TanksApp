@@ -60,7 +60,7 @@ class EditSupply extends Component {
                 >
                   <option value="New">New</option>
                   <option value="Project">Project</option>
-                  <option selected value="Send">
+                  <option value="Send">
                     Send
                   </option>
                   <option value="Mango">Mango</option>
