@@ -16,8 +16,10 @@ class ClientOrders extends Component {
           path={'client/orders/' + this.props.ClientID}
           handleData={this.handleDatas}
         />
-        {this.state.datas.map((item) => {
-/*           if (item.lenght > 0) {
+        { this.state.datas}
+{/*         {this.state.datas.map((item) => {
+          return console.log(item.name)
+          /*           if (item.lenght > 0) {
             return (
               <Link to={'/order/' + item.OrderID} key={item.OrderID}>
                 <div className="Row-2 Item Hover">
@@ -29,8 +31,8 @@ class ClientOrders extends Component {
           }
           else {
             return (<div className="null">null</div>)
-          } */
-        })}
+          } 
+        })} */}
       </div>
     )
   }
