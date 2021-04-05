@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import axios from 'axios'
 
-let host = 'http://localhost:4000/'
+let host = 'https://tanksvueapi.azurewebsites.net/'
 
 class Get extends Component {
   handleDataChange(par)  {

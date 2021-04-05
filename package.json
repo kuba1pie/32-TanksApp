@@ -1,6 +1,6 @@
 {
   "name": "TankApp",
-  "homepage": "https://kuba1pie.github.io/32-mysql/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
