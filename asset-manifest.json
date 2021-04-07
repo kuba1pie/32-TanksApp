@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/32-tanksapp/static/css/main.e1a8a8ea.chunk.css",
+    "main.js": "/32-tanksapp/static/js/main.2887d19f.chunk.js",
+    "main.js.map": "/32-tanksapp/static/js/main.2887d19f.chunk.js.map",
+    "runtime-main.js": "/32-tanksapp/static/js/runtime-main.ab677978.js",
+    "runtime-main.js.map": "/32-tanksapp/static/js/runtime-main.ab677978.js.map",
+    "static/js/2.f1f96522.chunk.js": "/32-tanksapp/static/js/2.f1f96522.chunk.js",
+    "static/js/2.f1f96522.chunk.js.map": "/32-tanksapp/static/js/2.f1f96522.chunk.js.map",
+    "index.html": "/32-tanksapp/index.html",
+    "precache-manifest.6a2f3b520327e2b26311854b72dd9c3d.js": "/32-tanksapp/precache-manifest.6a2f3b520327e2b26311854b72dd9c3d.js",
+    "service-worker.js": "/32-tanksapp/service-worker.js",
+    "static/css/main.e1a8a8ea.chunk.css.map": "/32-tanksapp/static/css/main.e1a8a8ea.chunk.css.map",
+    "static/js/2.f1f96522.chunk.js.LICENSE.txt": "/32-tanksapp/static/js/2.f1f96522.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ab677978.js",
+    "static/js/2.f1f96522.chunk.js",
+    "static/css/main.e1a8a8ea.chunk.css",
+    "static/js/main.2887d19f.chunk.js"
+  ]
+}
